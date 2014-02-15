@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">校园网</string>
+    <string name="action_settings">设置</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="login_button_denglu">登陆</string>
+    <string name="login_textview_yonghuming">用户：</string>
+    <string name="login_textview_mima">密码：</string>
+
+</resources>
