@@ -1,138 +1,118 @@
 package cn.edu.sdnu.xiaoyuanwang;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import cn.edu.sdnu.xiaoyuanwang.util.HttpUtil;
-
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import cn.edu.sdnu.xiaoyuanwang.util.menu.BaseSlidingFragmentActivity;
+import cn.edu.sdnu.xiaoyuanwang.util.menu.SlidingMenu;
 
-public class MainActivity extends Activity {
+import com.example.fragmenttest.R;
 
-	Button button_Denglu;
-	EditText editText_Yonghu;
-	EditText editText_Mima;
 
-	String yonghu;
-	String mima;
+public class MainActivity extends BaseSlidingFragmentActivity implements
+		OnClickListener {
+
+	protected SlidingMenu mSlidingMenu;
+
+	private LeftFragment mLeftFragment;
 	
+	private RightFragment mRightFragment;
+	
+	private TextView mTitleName;
+
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// setContentView(R.layout.activity_main);
-		setContentView(R.layout.activity_login);
-		denglu();
-	}
-
-	private void denglu() {
-
-		// 得到 登录按钮
-		findViews();
-		// 添加处理事件
-		setListeners();
-
-	}
-
-	private void setListeners() {
-
-		button_Denglu.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				// 验证用户和密码
-				yonghu = editText_Yonghu.getText().toString().trim();
-				mima = editText_Mima.getText().toString().trim();
-
-				//执行输入校验
-				if (validate()) {
-					//如果登陆成功
-					if (loginPro()) {
-						
-						// 如果成功进入主页
-						Intent intent = new Intent();
-						intent.setClass(MainActivity.this, HomeActivity.class);
-						MainActivity.this.startActivity(intent);
-					} else// 否则
-					{
-						Toast.makeText(MainActivity.this, "出错了,请重新输入",
-								Toast.LENGTH_SHORT).show();
-					}
-				}
-
-			}
-		});
-	}
-	//执行登陆校验
-	protected boolean loginPro() {
-		JSONObject jsonObj;
-		try
-		{
-			jsonObj = query(yonghu,mima);
-			//如果userId大于0
-			if(jsonObj.getInt("userId")>0)
-			{
-				return true;
-			}
-		}
-		catch(Exception e)
-		{
-			Toast.makeText(MainActivity.this, "服务器响应异常，请稍后再试！",Toast.LENGTH_SHORT).show();		
-			e.printStackTrace();
-		}
-		return false;
-	}
-	
-	private JSONObject query(String yonghu2, String mima2) throws JSONException, Exception {
-		// TODO Auto-generated method stub
-		//使用Map封装请求参数
-		Map<String,String> map = new HashMap<String,String>();
-		map.put("yonghu", yonghu);
-		map.put("mima", mima);
-		//定义发送请求的URL
-		String url = HttpUtil.BASE_URL + "AccessToken.ashx";
-		//发送请求
-		
-		return new JSONObject(HttpUtil.postRequest(url,map));
-	}
-
-	//执行输入校验
-	protected boolean validate() {
-		// TODO Auto-generated method stub
-		if(yonghu.equals(""))
-		{
-			Toast.makeText(MainActivity.this, "用户名必须填！",Toast.LENGTH_SHORT).show();		
-			return false;
-		}
-		if(mima.equals(""))
-		{
-			Toast.makeText(MainActivity.this, "密码必须填！",Toast.LENGTH_SHORT).show();			
-			return false;
-		}
-		return true;
-	}
-
-	private void findViews() {
-		button_Denglu = (Button) this.findViewById(R.id.button_Denglu);
-		editText_Yonghu = (EditText) this.findViewById(R.id.editText_Yonghu);
-		editText_Mima = (EditText) this.findViewById(R.id.editText_Mima);
+		initSlidingMenu();
+		setContentView(R.layout.main_center_layout);
+		initView(savedInstanceState);
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+
 	}
+
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+
+	}
+
+	private void initData() {
+
+	}
+
+
+	
+	private void initView(Bundle savedInstanceState) {
+		
+
+		
+		mSlidingMenu.setSecondaryMenu(R.layout.main_right_layout);
+		FragmentTransaction mFragementTransaction = getSupportFragmentManager()
+				.beginTransaction();
+		Fragment mFrag = new RightFragment();
+		mFragementTransaction.replace(R.id.main_right_fragment, mFrag);
+		mFragementTransaction.commit();
+		
+		// TODO Auto-generated method stub
+		((ImageButton) findViewById(R.id.ivTitleBtnLeft))
+				.setOnClickListener(this);
+		((ImageButton) findViewById(R.id.ivTitleBtnRigh))
+				.setOnClickListener(this);
+		mTitleName = (TextView) findViewById(R.id.ivTitleName);
+		mTitleName.setText("main");
+
+	}
+
+	private void initSlidingMenu() {
+		DisplayMetrics dm = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(dm);
+		int mScreenWidth = dm.widthPixels;// ��ȡ��Ļ�ֱ��ʿ��
+		// TODO Auto-generated method stub
+		setBehindContentView(R.layout.main_left_layout);// ������˵�
+		FragmentTransaction mFragementTransaction = getSupportFragmentManager()
+				.beginTransaction();
+		Fragment mFrag = new LeftFragment();
+		mFragementTransaction.replace(R.id.main_left_fragment, mFrag);
+		mFragementTransaction.commit();
+		// customize the SlidingMenu
+		mSlidingMenu = getSlidingMenu();
+		mSlidingMenu.setMode(SlidingMenu.LEFT_RIGHT);// �������󻬻����һ����������Ҷ����Ի������������Ҷ����Ի�
+		mSlidingMenu.setShadowWidth(mScreenWidth / 40);// ������Ӱ���
+		mSlidingMenu.setBehindOffset(mScreenWidth / 8);// ���ò˵����
+		mSlidingMenu.setFadeDegree(0.35f);// ���õ��뵭���ı���
+		mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+		mSlidingMenu.setShadowDrawable(R.drawable.slidingmenu_shadow);// ������˵���ӰͼƬ
+		mSlidingMenu.setSecondaryShadowDrawable(R.drawable.right_shadow);// �����Ҳ˵���ӰͼƬ
+		mSlidingMenu.setFadeEnabled(true);// ���û���ʱ�˵����Ƿ��뵭��
+		mSlidingMenu.setBehindScrollScale(0.333f);// ���û���ʱ��קЧ��
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		case R.id.ivTitleBtnLeft:
+			mSlidingMenu.showMenu(true);
+			break;
+		case R.id.ivTitleBtnRigh:
+			mSlidingMenu.showSecondaryMenu(true);
+			break;
+
+		default:
+			break;
+		}
+	}
+
 
 }
