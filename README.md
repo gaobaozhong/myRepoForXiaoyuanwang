@@ -16,3 +16,5 @@ my repository for Xiaoyuanwang Project
 8.制定设计详细设计说明书
 9.制定设计需求说明书
 10.增加用户密码验证。获取xauth的token。
+
+用户和密码随意填，增加了左右滑动目录。
