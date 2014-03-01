@@ -115,4 +115,5 @@
     <color name="qzone_picviewer_loading_loaded">#ffffffff</color>
     <color name="qzone_picviewer_description">#ffe0e0e0</color>
      <color name="holo_blue">#FF33E5B5</color>
+     <color name="left_bg">#E7E7E7</color>
 </resources>

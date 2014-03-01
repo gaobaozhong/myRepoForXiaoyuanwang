@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fragmenttest"
+    package="cn.edu.sdnu.i"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -15,19 +15,26 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Light.NoTitleBar" >
         <activity
-            android:name="cn.edu.sdnu.xiaoyuanwang.MainActivity"
+            android:name="cn.edu.sdnu.i.MainActivity"
+             android:screenOrientation="portrait" 
             android:label="@string/app_name" >
             
         </activity>
         <activity
-            android:name="cn.edu.sdnu.xiaoyuanwang.LoginActivity"
+            android:name="cn.edu.sdnu.i.LoginActivity"
+            android:screenOrientation="portrait" 
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity>      
+ 		<activity android:name="com.sdnu.yikatong.YiKaTongActivity" 
+ 			      android:screenOrientation="portrait" 
+ 			      android:label="@string/app_name" />
+ 		<activity android:name="com.sdnu.tushuguan.TuShuGuanActivity" 
+ 			      android:screenOrientation="portrait" 
+ 			      android:label="@string/app_name" />
     </application>
 
 </manifest>

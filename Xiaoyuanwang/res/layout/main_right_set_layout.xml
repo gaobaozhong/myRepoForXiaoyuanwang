@@ -6,12 +6,12 @@
 
     <include layout="@layout/main_title" />
 
-    <cn.edu.sdnu.xiaoyuanwang.util.menu.BounceScrollView
+    <cn.edu.sdnu.i.util.menu.BounceScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:focusable="true"
         android:focusableInTouchMode="true" >
 
-    </cn.edu.sdnu.xiaoyuanwang.util.menu.BounceScrollView>
+    </cn.edu.sdnu.i.util.menu.BounceScrollView>
 
 </LinearLayout>

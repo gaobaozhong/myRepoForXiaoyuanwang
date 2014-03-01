@@ -6,20 +6,12 @@
     android:clickable="true"
     android:orientation="vertical" >
 
-    <include
-        layout="@layout/main_title"
-        android:focusable="true" />
-
-    <Button
-        android:id="@+id/button_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="test_domethod" />
-
-    <TextView
-        android:id="@+id/textView_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
     
+
+    <FrameLayout
+        android:id="@+id/main_center_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </FrameLayout>
+
 </LinearLayout>

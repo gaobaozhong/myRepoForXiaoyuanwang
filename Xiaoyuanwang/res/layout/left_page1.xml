@@ -1,0 +1,161 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_wallpaper1"
+    android:clickable="true"
+    android:orientation="vertical" >
+
+    <include
+        layout="@layout/main_title"
+        android:focusable="true" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/infobg"
+        android:stretchColumns="1"
+        tools:context=".MainActivity" >
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="一卡通信息 "
+            android:textSize="40sp" />
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="50dp"
+                android:text="学号："
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/student_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="测试"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="15dp"
+                android:text="姓名："
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/student_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text=""
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="15dp"
+                android:text="类型："
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/card_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text=""
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="15dp"
+                android:text="余额："
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/card_balance2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text=""
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView_loss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="15dp"
+                android:text="挂失："
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/card_loss2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text=""
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView_frozen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="15dp"
+                android:text="冻结："
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/card_frozen2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text=""
+                android:textSize="20sp" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

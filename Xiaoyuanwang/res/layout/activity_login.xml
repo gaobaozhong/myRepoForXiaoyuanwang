@@ -6,7 +6,7 @@
 
     <EditText
         android:id="@+id/editText_Yonghu"
-        android:layout_width="wrap_content"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -17,7 +17,7 @@
 
     <EditText
         android:id="@+id/editText_Mima"
-        android:layout_width="wrap_content"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/editText_Yonghu"
         android:layout_below="@+id/editText_Yonghu"
@@ -26,7 +26,8 @@
 
     <Button
         android:id="@+id/button_Denglu"
-        android:layout_width="wrap_content"
+        android:layout_width="230dp"
+        
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/editText_Mima"
         android:layout_alignRight="@+id/editText_Yonghu"
@@ -41,7 +42,7 @@
         android:layout_above="@+id/editText_Yonghu"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="71dp"
-        android:src="@drawable/sdnu_xxhdpi_ui_icon" />
+        android:src="@drawable/sdnu_xxxhdpi_ui_icon" />
 
     <TextView
         android:id="@+id/textView_Yonghu"
@@ -49,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/editText_Yonghu"
         android:layout_alignBottom="@+id/editText_Yonghu"
+        android:layout_alignLeft="@+id/textView_Mima"
         android:layout_toLeftOf="@+id/editText_Yonghu"
         android:text="@string/login_textview_yonghuming" />
 

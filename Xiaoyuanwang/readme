@@ -1,3 +1,4 @@
+﻿<<<<<<< HEAD
 ﻿readme
 8:53 2014/2/22
 1.保存token到service中，这样就可以随时用了。
@@ -5,3 +6,154 @@
 3.使用Git上传上述代码，大家都学会下载和建立分支等版本控制工具。
 13:26 2014/2/22
 实现domethod方法。获得result。 已经实现。写成了static方法。直接可以调用
+=======
+readme
+8:53 2014/2/22
+1.保存token到service中，这样就可以随时用了。
+2.实现domethod方法。获得result。
+3.使用Git上传上述代码，大家都学会下载和建立分支等版本控制工具。
+>>>>>>> b9ece734da0d5ac8f351c7d7ac7f0bfaf8469fb5
+
+9:30 2014/2/24
+1.增加了登陆验证
+2.修改包结构
+
+。。
+
+
+
+2014.2.26
+	1
+	把  left_page1.xml 改成了 yikatongroot.xml
+	把 left_page2.xml 改成  tushuguangroot.xml
+	2
+	实现了一卡通的根目录界面,卡片信息显示的界面.
+	2
+	实现了一卡通根目录中的卡片信息查询,实现了二级卡片信息的显示.
+	3
+	修改了 程序禁止旋转.
+	4
+	增加了图书馆的根目录的界面 .
+	5
+	略微调整左侧菜单宽度,因为之前导航栏不显示字体.
+	
+	下午
+	6
+	修改了程序的假退出 ,增加了代码    System.exit(0);
+	7
+	修改了 程序禁止旋转.程序旋转之后 布局发生很大的改变,而且会自动回到 首页.
+	AndroidManifest.xml 文件中加入 了 android:screenOrientation="portrait" 
+	8
+	调整了 yikatongcard布局.
+	9
+	隐藏了左侧 导航菜单栏的 两个 ImageButton
+	10
+	更改了 yikatongcard.xml背景图片.
+	11
+	隐藏了 yikatongcard.xml的 两个imagebutton
+	修改  yikatongcard.xml  布局 为  TableLayout
+	
+	
+	
+	
+	
+	
+		  
+	
+2012.2.27
+	
+	1	
+             增加了一些class 文件 
+	BookBorowd.java
+	BookExpired.java
+	FindBooks.java
+	AppointmentBook.java
+	ConsumerDetails.java
+	
+	目前的一个方案 是用 fragment 还是用 layout
+	activity 之间如何传递参数 ??
+	
+	2
+	目前一个思路是   由各个主目录 到 子级菜单,采用 activity 之间的跳转.进行activity 数据之间的传递.
+	这里建立了  YiKaTongActivity.java
+		  TuShuGuanActivity.java
+		  
+	3
+	修改成了 这种模式  ,activity - fragment -  activity -fragment.
+	
+	重新命名部分类文件  加上 Fragment的后缀.建立了yikatongfragment.xml文件
+							         建立了 yikatongactivity.xml
+							         建立了 tushuguanroot.xml
+							   
+	
+	每一个左侧 菜单 点击 就会进入相应的   activity ,每一个activity  ,对应多个 fragment.所以这
+	便 大大减少了 activity的数量.
+	
+	比方说, 我这里点击  左侧的 一卡通菜单项 ,此时加载  YiKaTongActivity.java
+	再点击  "卡片信息"  这时会打开 YiKaTongFragment.java  .这样会减少 activity的数量
+	易于扩展.  
+	
+	4	
+	修改了文件  YiKaTongCardFrament.java
+			cardLoss.setText( lossState ? "是":"否");
+			cardFrozen.setText(freezeState ? "是":"否");  
+		
+		
+		
+代码扩展方法. 这里以 增加图书馆的  当前借阅为例 :
+
+步骤一:
+	新建一个 BookBorrowedFragement.java 类  要求继承于 Fragement.
+	新建   对应的 	tushuguanborrowed.xml文件,
+步骤二:
+	在TuShGuanRoot.java   onClick()方法中 ,把 对应按键的ID号 传递到  TuShuGuanActivity.java
+	中,并启动这个   class
+步骤三:
+	程序转到  TuShuGuanActivity.java   在onCreate()方法 中根据 传递过来的 ID 值 进行功能的选择
+	这里如果  值  为 R.id.imageButtonborrowed  则  mFrag[position] =new BookBorrowedFragment();	
+	显示相应的界面. 
+	这里程序会自动跳转到  BookBorrowedFragement.java public View onCreateView()方法,
+	你想执行的代码可以直接添加到这里.
+	
+扩充 左侧菜单栏对应的内容 方法 ,这里以  扩展  图书馆为例.
+		
+步骤一:
+	修改  LeftPage2  为   TuShuGuanRoot.java  
+步骤二:
+	新建一个  类 TuShuGuanActivity.java  继承于 Activity 
+步骤三:
+	在 TuShuGuanRoot.java  onClick()方法 中传递按键参数 .
+步骤四:
+	在AndroidManifest.xml 文件中加入   TuShuGuanActivity.java  的启动.
+ 
+ 	则现在可以根据  传递过程的按键参数  启动对应的  fragement .
+
+
+
+
+    	
+ 
+ 
+ 
+  高老师
+  卡通的详细界面是不是增加一个退出按钮	 ?
+  一卡通的详细界面用的table布局很不错，可不可以用在其他的信息页上比如，主页和班车信息  ?
+    	
+    	
+    	
+  修正点击退出错误.修改了字体大小 . 修正一些标题内容 ,  根据界面显示相应内容.  	
+  
+  
+
+2014.2.28
+	1
+	{"recordCount":1,"records":[{"identityNumber":"2012021050","bookName":"Linux内核设计与实现","borrowDate":"2013-10-11T14:46:33","mustReturnDate":"2014-01-09T00:00:00","isRenew":true}]}
+	增加 BookBorrowedFragment 的代码
+	完成 图书借阅 界面和信息显示.
+	2
+	更改 yikatongroot.xml的图片文件
+	3
+	重新命名 两个左右菜单的图标. 交换菜单栏图标.
+	  
+    	
+    	
